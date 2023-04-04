@@ -1,0 +1,53 @@
+Dec 7:
+- Trained Large network of whole board input 10,000 times, didn't get any better.
+- Learned of NEAT algorithm, where the topology of the network changes too. super interesting.
+Dec 6 2018:
+- finshed training 3 different sizes over 5000 generations. they all still stopped around 20, and the snakes still run into
+	themselves? How is this possible?
+- Trying different fitness functions: v1: normal, v2: award for apple, award for moving toward, v3: only award for apple
+- (dec 7) Tested with same random seed to eliminate differences. v2 maxed out lower. v1 and v3 were similar, just v3 was a
+	little slower to getting up to that 20.5 average high. I think v3 has more potential, it didn't randomly kill itself
+	like it has with other version
+Dec 5 2018:
+- finished training 24000 generations over night! took maybe 12 hours. After 3000 generations, it didn't get any better!
+	It maxed its score around 25, averaging 20. My goal is average of 50. I think I need to make the network bigger.
+	Also might try if something is right in front of it be 0 distance, not 1
+- Nate Ludlow gave the idea of training 3-4 different sized networks at the same time to see which is better, just 
+	for 5000 generations each. can multiprocess.
+Dec 4 2018:
+- Created load function for AIv0.2
+- Finshed input structuring for simplified network
+- Trained for 500 generations with simplified network and got to a length of 15!!!!!
+Dec 1 2018:
+- Changed AIv0.2 to account for subclasses when crossing over. returns an instance of the subclass if there is one now.
+- Started working on the evolve function, with multiple populations that migrate, but train independently
+- train() takes a long time. 47 sec for 100 gen with 8 crossovers, 40 sec w/o crossover
+Nov 29-30:
+- Brutal data alayzing. Lots of running through it and printing. Fitness somehow goes to 0 for all on second generation,
+	and after, always, even if length is 2.
+- Somehow the snake pos if often off the board???
+- I think I fixed the zero error, through reordering the play_game function. 
+- Still issue of player way off of the board- (34,8)
+- FOUND ISSUE OF GOING OFF BOARD!! in the train function, it would play a game 3 times, but it wouldn't re-intialize
+	the values of pos, direction etc. They carried over into the next game
+Nov 28:
+- Fixed play_game. Created a timeit function for play_game. Can do 1000 games in a about 4.3 seconds.
+- Finished GUI, as far as I know. Doesn't come up front for windows though. Too lazy to fix
+Nov 27:
+- made progress in play_game, just need to adjust the output it returns a list of the output neurons, 
+	instead of which one was the max
+Nov 17:
+	-tested memory size of 50 neural nets for the size 192x16x16x4. If my calculations
+		are right, it should only take a few MB!!
+
+Nov 8:
+ - Completely rewrote the AI class as Network - A lot cleaner and more effective
+Sep 22:
+ - Switched keyup to keydown, makes a lot more responsive
+
+Sep 21:
+ - Made arena resizable.
+
+
+Before:
+ - created backlog of buttons pressed for double moves
